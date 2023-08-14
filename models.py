@@ -31,7 +31,6 @@ class RNNModel(nn.Module):
     def forward(self, x, hidden):
         embedded = self.embedding(x)
 
-        hidden = torch.tensor(hidden)
         output, hidden = self.rnn(embedded, hidden)
 
         output = self.fc(output)
