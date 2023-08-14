@@ -20,10 +20,10 @@ parser.add_argument('--hidden_dim', type=int, default=256, help="hidden dim stat
 parser.add_argument('--output_dim', type=int, default=4, help="output head dim (4 for 0, 1, 2, 3)") # do not change
 
 ## config for dataset
-parser.add_argument('--train_text_path', type=str, default='./demo_data/fixtext.txt', help='train text path')
-parser.add_argument('--train_label_path', type=str, default='./demo_data/fixlabel.txt', help='train label path')
-parser.add_argument('--valid_text_path', type=str, default='./demo_data/testtext.txt', help='valid text path')
-parser.add_argument('--valid_label_path', type=str, default='./demo_data/testlabel.txt', help='valid label path')
+parser.add_argument('--train_text_path', type=str, default='/kaggle/input/train-data-fix/data_text100k.txt', help='train text path')
+parser.add_argument('--train_label_path', type=str, default='/kaggle/input/train-data-fix/data_label100k.txt', help='train label path')
+parser.add_argument('--valid_text_path', type=str, default='/kaggle/input/train-data-fix/test_text10k.txt', help='valid text path')
+parser.add_argument('--valid_label_path', type=str, default='/kaggle/input/train-data-fix/test_label10k.txt', help='valid label path')
 parser.add_argument('--length', type=int, default=32, help='max length of a sentence')       
 
 ## config for optimizer
