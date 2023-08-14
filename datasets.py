@@ -1,6 +1,6 @@
 from torch.utils.data import Dataset
 from keras.preprocessing import text
-from keras.preprocessing import sequence
+from keras.preprocessing.sequence import pad_sequences
 import numpy as np
 import re
 
@@ -34,14 +34,14 @@ class MyDataset(Dataset):
         self.sents = [[self.word2id[word] for word in sent]
                       for sent in self.sents]
 
-        self.sents = sequence.pad_sequences(
+        self.sents = pad_sequences(
             self.sents, maxlen=self.length, padding="post")
 
         with open(self.label_path, 'r') as f:
             labels = f.read().splitlines()
 
         self.labels = [list(map(int, label.split())) for label in labels]
-        self.labels = sequence.pad_sequences(
+        self.labels = pad_sequences(
             self.labels, maxlen=self.length, padding="post", value=3)
 
     def __getitem__(self, index):
@@ -68,14 +68,14 @@ class TestDataset(Dataset):
 
         self.sents = [[self.word2id[word] if word in self.word2id else self.word2id['unk'] for word in sent] for sent in self.sents]
 
-        self.sents = sequence.pad_sequences(
+        self.sents = pad_sequences(
             self.sents, maxlen=self.length, padding="post")
 
         with open(self.label_path, 'r') as f:
             labels = f.read().splitlines()
 
         self.labels = [list(map(int, label.split())) for label in labels]
-        self.labels = sequence.pad_sequences(
+        self.labels = pad_sequences(
             self.labels, maxlen=self.length, padding="post", value=3)
 
     def __getitem__(self, index):
@@ -106,7 +106,7 @@ class My_BertBase_Dataset(Dataset):
 
         self.ids = [self.tokenizer.convert_tokens_to_ids(line) for line in self.sents]
         
-        self.ids = sequence.pad_sequences(
+        self.ids = pad_sequences(
             self.ids, maxlen=self.length, padding="post", value=1)
         
 
@@ -119,7 +119,7 @@ class My_BertBase_Dataset(Dataset):
         self.labels = [list(map(int, label.split())) for label in labels]
         self.labels = [[0]+label+[3] for label in self.labels]
 
-        self.labels = sequence.pad_sequences(
+        self.labels = pad_sequences(
             self.labels, maxlen=self.length, padding="post", value=3)
 
     def __getitem__(self, index):
