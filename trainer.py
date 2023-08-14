@@ -132,6 +132,8 @@ class Trainer():
         #print("batch=", batch)
         accuracy = correct/(batch_size*length*(batch+1))
         test_loss = test_loss/(length*(batch+1))
+        self.model.train()
+
 
         return test_loss, accuracy
 
@@ -193,5 +195,5 @@ class Trainer():
         recall_1 = cnf_matrix[1][1]/cnf_matrix[1, :].sum()
         precision_2 = cnf_matrix[2][2]/cnf_matrix[:, 2].sum()
         recall_2 = cnf_matrix[2][2]/cnf_matrix[2, :].sum()
-
+        self.model.train()
         return test_loss, accuracy, precision_1, recall_1, precision_2, recall_2
