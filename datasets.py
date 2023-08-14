@@ -1,6 +1,6 @@
 from torch.utils.data import Dataset
 from keras.preprocessing import text
-from keras.preprocessing.sequence import pad_sequences
+from keras_preprocessing.sequence import pad_sequences
 import numpy as np
 import re
 
