@@ -6,7 +6,7 @@ from datasets import *
 from models import *
 from prepocessing import *
 import numpy as np
-from keras.preprocessing import sequence
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
 
@@ -58,10 +58,10 @@ def pipleline(sentence):
 
 
     tokens = [word2id[word] if word in word2id else word2id['unk'] for word in words]
-    tokens = sequence.pad_sequences([tokens], maxlen=length, padding='post')[0]
+    tokens = pad_sequences([tokens], maxlen=length, padding='post')[0]
 
     label = [int(ele) for ele in label]
-    label = sequence.pad_sequences([label], maxlen=length, padding="post", value=3)[0]
+    label = pad_sequences([label], maxlen=length, padding="post", value=3)[0]
 
 
     input_tensor = torch.Tensor([tokens]).long().to(device)
