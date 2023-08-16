@@ -90,6 +90,6 @@ if __name__ == '__main__':
 
     vocab_size = train_dataset.vocab_size
 
-    trainer.train(train_dataset, test_dataset, opt.batch_size, start_epoch=1, end_epoch=100)
+    trainer.train(train_dataset, test_dataset, opt.batch_size, start_epoch=1, end_epoch=10000)
     
     
