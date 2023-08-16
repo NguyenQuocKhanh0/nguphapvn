@@ -14,7 +14,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Loading saved model
 length = 32
-embedding_size = 512
+embedding_size = 256
 hidden_dim = 256
 n_layers = 2
 num_categories = 4
