@@ -60,6 +60,7 @@ def pipleline(sentence):
     tokens = [word2id[word] if word in word2id else word2id['unk'] for word in words]
     tokens = pad_sequences([tokens], maxlen=length, padding='post')[0]
 
+
     label = [int(ele) for ele in label]
     label = pad_sequences([label], maxlen=length, padding="post", value=3)[0]
 
