@@ -71,7 +71,5 @@ def pipleline(sentence):
 
     return res
 
-    
-
- 
-    
+sent = "Trong đó, 15 trường hợp là tiếp xúc gần với bệnh nhân đã được cách ly từ trước nên không có khả năng lây nhiễm tiếp cho cộng đồng."
+res = pipleline(sent)

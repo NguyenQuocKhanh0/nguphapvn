@@ -5,9 +5,12 @@ from nltk.corpus import gutenberg
 from string import punctuation
 import nltk
 from underthesea import word_tokenize
+import
+from underthesea.pipeline.word_tokenize import regex_tokenize
+from underthesea.pipeline.word_tokenize.regex_tokenize import tokenize
 from collections import defaultdict
 import re
-from underthesea.word_tokenize.regex_tokenize import tokenize
+
 
 def count_comma(sent):
     return sent.count(",")
